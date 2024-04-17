@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>B204聊天室</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>🔥临时聊天室🔥</title>
     <style>
       body {
         margin: 0;
         padding-bottom: 3rem;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+      #background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(#77aa9c, #fdcd68);
+        background-size: cover;
+        z-index: -1;
       }
 
       #form {
@@ -42,7 +52,6 @@
         outline: none;
         color: #fff;
       }
-
       #messages {
         list-style-type: none;
         margin: 0;
@@ -50,17 +59,30 @@
       }
       #messages > li {
         padding: 0.5rem 1rem;
+        border-bottom: #333 dashed 0.0526rem;
       }
-      #messages > li:nth-child(odd) {
-        background: #efefef;
+      #messages > li:last-child {
+        border: none;
+      }
+      #title {
+        text-align: center;
+        background-color: cadetblue;
+        padding: 1rem 0;
+        margin: 0;
       }
     </style>
   </head>
   <body>
+    <div id="background" />
+    <h3 id="title">🌟🌟🌟🔥临时聊天室🔥🌟🌟🌟</h3>
     <ul id="messages"></ul>
     <form id="form" action=""><input id="input" autocomplete="off" /><button>Send</button></form>
     <script src="/socket.io/socket.io.js"></script>
     <script>
+      setInterval(() => {
+        debugger
+      }, 200)
+
       let userInput = window.sessionStorage.getItem('username')
       if (!userInput) {
         userInput = prompt('请输入聊天室昵称:')
