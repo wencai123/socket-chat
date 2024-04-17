@@ -64,7 +64,6 @@
       let userInput = window.sessionStorage.getItem('username')
       if (!userInput) {
         userInput = prompt('请输入聊天室昵称:')
-        console.log(userInput, '1111')
         while (!userInput) {
           userInput = prompt('请输入有效的昵称:')
         }
